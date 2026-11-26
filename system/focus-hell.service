@@ -1,0 +1,24 @@
+[Unit]
+Description=Focus Hell Root Enforcer Daemon
+
+After=network.target
+
+[Service]
+
+Type=simple
+
+User=root
+
+WorkingDirectory=/opt/focus-hell 
+
+ExecStart=/usr/bin/python3 /opt/focus-hell/daemon/focusd.py 
+
+Restart=always
+RestartSec=2
+
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+
+WantedBy=multi-user.target
